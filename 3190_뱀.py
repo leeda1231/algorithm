@@ -18,6 +18,7 @@ time = 0
 dx = [0,1,0,-1]
 dy =[1,0,-1,0]
 d = 0
+
 while snake:
     time += 1
     x,y = snake.popleft()
