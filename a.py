@@ -1,3 +1,4 @@
-from itertools import permutations
+from collections import deque
 
-print(list(permutations([i for i in range(1,10)],3)))
+n = [1,2,3]
+print([n[1:]])
