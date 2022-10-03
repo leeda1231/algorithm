@@ -1,4 +1,2 @@
-from collections import deque
-
-n = [1,2,3]
-print([n[1:]])
+a = [[1,2],[3,4]]
+print(sum(a[0]))
