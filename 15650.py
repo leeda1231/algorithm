@@ -1,5 +1,10 @@
 n,m = map(int,input().split())
 s = []
+
+
+'''
+n,m = map(int,input().split())
+s = []
 def dfs(start):
     if len(s) == m:
         print(' '.join(map(str,s)))
@@ -12,7 +17,7 @@ def dfs(start):
             s.pop()
 
 dfs(1)
-
+'''
 
 '''
 itertools
