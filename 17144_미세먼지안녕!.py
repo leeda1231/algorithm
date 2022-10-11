@@ -1,4 +1,92 @@
 from pprint import pprint
+
+r,c,T = map(int,input().split())
+room = []
+for i in range(r):
+    room.append(list(map(int,input().split())))
+    if room[i][0] == -1:
+        fresh_d = i
+fresh_u = fresh_d - 1
+
+dx = [0,1,0,-1]
+dy = [1,0,-1,0]
+# 확산
+def spread():
+    v = [[0]*c for _ in range(r)]
+    for x in range(r):
+        for y in range(c):
+            if (x,y) != (fresh_u,0) and (x,y) != (fresh_d,0):
+                cnt = 0
+                arr = []
+                for d in range(4):
+                    nx = x + dx[d]
+                    ny = y + dy[d]
+                    if 0 <= nx < r and 0 <= ny < c and (nx,ny) != (fresh_u,0) and (nx,ny) != (fresh_d,0):
+                        cnt += 1
+                        arr.append((nx,ny))
+                if cnt > 0:
+                    for i,j in arr:
+                        v[i][j] += room[x][y] // 5
+                    v[x][y] -= (room[x][y] // 5) * cnt
+    
+    for x in range(r):
+        for y in range(c):
+            room[x][y] += v[x][y]
+
+dx_u = [0,-1,0,1]
+dy_u = [1,0,-1,0]
+# 공기청정기 작동
+def move1():
+    x,y = fresh_u,1
+    d = 0
+    last = room[x][y]
+    room[x][y] = 0
+    while 1:
+        nx = x + dx_u[d]
+        ny = y + dy_u[d]
+        if (nx,ny) == (fresh_u,0):
+            return
+        if 0 <= nx < r and 0 <= ny < c:
+            next = room[nx][ny]
+            room[nx][ny] = last
+            last = next
+            x,y = nx,ny
+        else:
+            d += 1
+
+dx_d = [0,1,0,-1]
+dy_d = [1,0,-1,0]
+def move2():
+    x,y = fresh_d,1
+    d = 0
+    last = room[x][y]
+    room[x][y] = 0
+    while 1:
+        nx = x + dx_d[d]
+        ny = y + dy_d[d]
+        if (nx,ny) == (fresh_d,0):
+            return
+        if 0 <= nx < r and 0 <= ny < c:
+            next = room[nx][ny]
+            room[nx][ny] = last
+            last = next
+            x,y = nx,ny
+        else:
+            d += 1
+
+for _ in range(T):
+    spread()
+    move1()
+    move2()
+
+ans = 2
+for i in room:
+    ans += sum(i)
+print(ans)
+
+
+'''
+from pprint import pprint
 r,c,T = map(int,input().split())
 arr = [list(map(int,input().split())) for _ in range(r)]
 # 우 상 좌 하
@@ -77,7 +165,7 @@ for i in range(r):
             total += arr[i][j]
 
 pprint(arr)
-
+'''
 
 '''
 틀렸습니다
