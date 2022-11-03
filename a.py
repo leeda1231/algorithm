@@ -1,7 +1,5 @@
-from collections import deque
+from itertools import combinations
 
-q = deque((1,2))
-w = deque()
-w.append((1,2))
-print(q)
-print(w)
+m = 10
+lst = [i for i in range(m)]
+print(2//2)
