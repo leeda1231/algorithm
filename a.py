@@ -1,23 +1,12 @@
-from collections import deque
-
-def solution(bridge_length, weight, truck_weights):
-    n = len(truck_weights)
-    answer = 0
-    q = deque([0]*bridge_length)
-    total = 0
-    for i in range(n):
-        while 1:
-            tmp = q.pop()
-            total -= tmp
-            if total + truck_weights[i] <= weight:
-                total += truck_weights[i]
-                q.appendleft(truck_weights[i])
-                answer += 1
-                break
-            else:
-                q.appendleft(0)
-                answer += 1
-    
-    answer += len(q)
-        
-    return answer
+board = [[1,2],[3,4]]
+n = 2
+m = 2
+last = board[0]
+for i in range(1,n):
+    new = board[i]
+    print(last)
+    board[i] = last
+    print(board[i])
+    last = new
+board[0] = [0]*m
+print(board)
