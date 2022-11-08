@@ -6,10 +6,8 @@ end = 0
 tmp = pools[0][0]
 
 for i in range(n):
-    start = pools[i][0]
-    end = pools[]
     if end >= pools[i][1]:
-        pass
+        continue
     elif end > pools[i][0]:
         d = pools[i][1] - end
     else:
@@ -20,10 +18,3 @@ for i in range(n):
         end = pools[i][1] + l - (d % l)
 
 print(cnt)
-
-
-# for i in range(n):
-#     start = pools[i][0]
-#     end = pools[i][1]
-#     while tmp <= end:
-#         tmp = start + l
