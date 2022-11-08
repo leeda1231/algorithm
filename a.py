@@ -1,2 +1,2 @@
-for i in [1,2]:
-    print(i)
+s = {'a'}
+print(s[0])
