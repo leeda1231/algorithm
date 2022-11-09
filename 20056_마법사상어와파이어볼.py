@@ -1,5 +1,3 @@
-from pprint import pprint
-
 n,m,k = map(int,input().split())
 fireballs = []
 for _ in range(m):
@@ -17,11 +15,10 @@ def move(fireballs):
         m = fireball[2]
         s = fireball[3]
         d = fireball[4]
-        nr = r + s * dir[d][0]
-        nc = c + s * dir[d][1]
-        if 0 <= nr < n and 0 <= nc < n:
-            board[nr][nc].append((m,s,d))
-            v.add((nr,nc))
+        nr = (r + s * dir[d][0]) % n
+        nc = (c + s * dir[d][1]) % n
+        board[nr][nc].append((m,s,d))
+        v.add((nr,nc))
     return board,v
 
 def work(board,v):
@@ -63,25 +60,6 @@ answer = 0
 for fireball in fireballs:
     answer += fireball[2]
 print(answer)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 '''
