@@ -1,5 +1,5 @@
 s = int(input())
-'''
+
 start = 0
 end = 2 * s
 
@@ -29,3 +29,4 @@ while 1:
         break
     n += 1
 print(n)
+'''
