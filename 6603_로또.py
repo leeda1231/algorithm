@@ -4,10 +4,9 @@ def dfs(start):
         print(*ans)
         return
     for i in range(start,k):
-        if s[i] not in ans:
-            ans.append(s[i])
-            dfs(i+1)
-            ans.pop()
+        ans.append(s[i])
+        dfs(i+1)
+        ans.pop()
 
 while 1:
     k,*s = map(int,input().split())
