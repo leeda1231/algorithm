@@ -18,7 +18,7 @@ def dfs(x,y,num,total):
         nx = x + dx[d]
         ny = y + dy[d]
 
-        if 0<=nx<n and 0<=ny<m and v[nx][ny] == 0:
+        if 0 <= nx < n and 0 <= ny < m and v[nx][ny] == 0:
             v[nx][ny] = 1
             if num == 2:
                 dfs(x,y,num+1,total+arr[nx][ny])    
