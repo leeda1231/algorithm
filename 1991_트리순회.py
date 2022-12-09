@@ -1,6 +1,5 @@
 n = int(input())
 nodes = {}
-
 for _ in range(n):
     m, l, r = input().split()
     nodes[m] = {'left': l, 'right': r}
