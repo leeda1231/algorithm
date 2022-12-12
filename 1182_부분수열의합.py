@@ -1,6 +1,7 @@
 def dfs(start):
     global ans
     if len(p) == i:
+        print(p)
         if sum(p) == s:
             ans += 1
         return

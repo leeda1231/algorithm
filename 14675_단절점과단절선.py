@@ -1,6 +1,5 @@
 from collections import defaultdict
 import sys
-sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 graph = defaultdict(list)
 
