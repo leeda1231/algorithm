@@ -1,4 +1,5 @@
-n = 1234
-a = n // 10
-b = n % 10
-print(1000*b + a)
+a = [[0,0],[1,1]]
+b = [arr[:] for arr in a]
+b[1][0] = 2
+print(b)
+print(a)
