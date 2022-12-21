@@ -1,3 +1,4 @@
-import heapq
-heap = [-2,-1,1,2]
-print(heapq.heappop(heap))
+from collections import deque
+q = deque(map(int,input()))
+q.appendleft(1)
+print(q)
