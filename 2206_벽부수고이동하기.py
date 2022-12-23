@@ -21,7 +21,7 @@ while q:
             if v[nx][ny][z] == 0 and board[nx][ny] == 0:
                 v[nx][ny][z] = v[x][y][z] + 1
                 q.append((nx,ny,z))
-            elif z == 0 and board[nx][ny] == 1 and v[nx][ny][1] == 0:
+            elif z == 0 and board[nx][ny] == 1:
                 v[nx][ny][1] = v[x][y][z] + 1
                 q.append((nx,ny,1))
 else:

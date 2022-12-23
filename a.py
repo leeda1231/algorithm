@@ -1,11 +1,6 @@
-from collections import deque
-q = deque([1,2,3])
-
-q.rotate(-1)
-print(q)
-
-
-lst = [1,2,3,4,5,6]
-locals()['test1'] = [1,2,3,4,5]
-
-print(test1)
+from pprint import pprint
+n = 5
+m = 3
+v = [[[0,0] for _ in range(m)] for _ in range(n)]
+pprint(v)
+print(v[2][2])

@@ -1,7 +1,7 @@
 from collections import deque
 a,b,c = map(int,input().split())
 total = a+b+c
-v = [[0] * 1501 for _ in range(1501)]
+v = [[0] * 1002 for _ in range(1002)]
 
 def bfs(a,b,c):
     q = deque([(a,b,c)])
