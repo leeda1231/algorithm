@@ -5,26 +5,24 @@ for _ in range(m):
     fireballs.append((r-1,c-1,m,s,d))
 dir = {0:(-1,0), 1:(-1,1), 2:(0,1), 3:(1,1), 4:(1,0), 5:(1,-1), 6:(0,-1), 7:(-1,-1)}
 
-# 질량, 속력, 방향
+# 1
 def move(fireballs):
     board = [[[] for _ in range(n)] for _ in range(n)]
     v = set()
     for fireball in fireballs:
-        r = fireball[0]
-        c = fireball[1]
-        m = fireball[2]
-        s = fireball[3]
-        d = fireball[4]
+        r,c,m,s,d = fireball
         nr = (r + s * dir[d][0]) % n
         nc = (c + s * dir[d][1]) % n
         board[nr][nc].append((m,s,d))
         v.add((nr,nc))
     return board,v
 
+# 2
 def work(board,v):
     fireballs = []
     for r,c in v:
-        if len(board[r][c]) > 1:
+        cnt = len(board[r][c])
+        if cnt > 1:
             total_m = 0
             total_s = 0
             flag_d = 0
@@ -37,17 +35,13 @@ def work(board,v):
                     flag_d += 2
             m = total_m // 5
             if m > 0:
-                s = total_s // len(board[r][c])
-                if flag_d == len(board[r][c]) or flag_d == 2 * len(board[r][c]):
-                    fireballs.append((r,c,m,s,0))
-                    fireballs.append((r,c,m,s,2))
-                    fireballs.append((r,c,m,s,4))
-                    fireballs.append((r,c,m,s,6))
+                s = total_s // cnt
+                if flag_d == cnt or flag_d == 2 * cnt:
+                    for i in range(0,7,2):
+                        fireballs.append((r,c,m,s,i))
                 else:
-                    fireballs.append((r,c,m,s,1))
-                    fireballs.append((r,c,m,s,3))
-                    fireballs.append((r,c,m,s,5))
-                    fireballs.append((r,c,m,s,7))
+                    for i in range(1,8,2):
+                        fireballs.append((r,c,m,s,i))
         else:
             fireballs.append((r,c,board[r][c][0][0],board[r][c][0][1],board[r][c][0][2]))
     
@@ -61,8 +55,8 @@ for fireball in fireballs:
     answer += fireball[2]
 print(answer)
 
-
 '''
+--------------------------------------------------------------
 NxN격자, 파이어볼 M개 발사
 파이어볼의 위치:(r,c)
 질량:m
