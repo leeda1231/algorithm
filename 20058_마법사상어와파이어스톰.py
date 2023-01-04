@@ -67,6 +67,3 @@ for i in range(2**n):
         if cnt_max < cnt:
             cnt_max = cnt
 print(cnt_max)
-
-
-

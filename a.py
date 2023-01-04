@@ -1,6 +1,5 @@
-from pprint import pprint
-n = 5
-m = 3
-v = [[[0,0] for _ in range(m)] for _ in range(n)]
-pprint(v)
-print(v[2][2])
+print(0//2)
+print(1//2)
+print(2//2)
+print(3//2)
+print((-1)**0)
