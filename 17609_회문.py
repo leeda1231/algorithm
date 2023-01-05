@@ -1,3 +1,36 @@
+def palindrome(word):
+    global ans
+    s = 0
+    e = len(word) - 1
+    while s < e:
+        if word[s] != word[e]:
+            # 유사회문
+            pseudo_palindrome(s+1,e,word)
+            pseudo_palindrome(s,e-1,word)
+            return
+        s += 1
+        e -= 1
+    ans = 0
+
+
+def pseudo_palindrome(s,e,word):
+    global ans
+    while s < e:
+        if word[s] != word[e]:
+            return
+        s += 1
+        e -= 1
+    ans = 1
+
+
+T = int(input())
+for _ in range(T):
+    word = input()
+    ans = 2
+    palindrome(word)
+    print(ans)
+
+'''
 # 회문
 def check1(w):
     global ans
@@ -35,3 +68,4 @@ for _ in range(T):
     ans = 2
     check1(word)
     print(ans)
+'''
