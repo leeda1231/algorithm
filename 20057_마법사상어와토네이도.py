@@ -3,7 +3,6 @@
 그에 따른 모래 이동
 바깥에 나오는 모래 찾기
 '''
-from pprint import pprint
 n = int(input())
 board = [list(map(int,input().split())) for _ in range(n)]
 sand = 0
