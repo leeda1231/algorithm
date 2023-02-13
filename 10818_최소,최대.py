@@ -1,11 +1,11 @@
 n = int(input())
 lst = list(map(int,input().split()))
-min_val = int(1e6)
-max_val = int(-1e6)
-for num in lst:
-    if num < min_val:
-        min_val = num
-    if num > max_val:
-        max_val = num
-
-print(min_val, max_val)
+# print(min(lst),max(lst))
+min_v = int(1e6)
+max_v = int(-1e6)
+for i in range(n):
+    if lst[i] < min_v:
+        min_v = lst[i]
+    if lst[i] > max_v:
+        max_v = lst[i]
+print(min_v,max_v)

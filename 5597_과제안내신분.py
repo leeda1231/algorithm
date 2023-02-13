@@ -1,8 +1,8 @@
-a = set(i for i in range(1,31))
-b = set()
+s = {i for i in range(1,31)}
 for _ in range(28):
-    b.add(int(input()))
-lst = list(a-b)
+    x = {int(input())}
+    s -= x
+lst = list(s)
 lst.sort()
-for i in lst:
-    print(i)
+print(lst[0])
+print(lst[1])
