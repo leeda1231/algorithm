@@ -1,4 +1,3 @@
-a = 1
-if a.isdigit():
-    print("Yes")
-print(type(a))
+import sys
+input = sys.stdin.readline().rstrip()
+print(input())
