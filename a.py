@@ -1,3 +1,4 @@
-lst = []
-lst.append([0,1])
-print(lst)
+n = 10
+for i in range(1,n+1):
+    print(i,n)
+    n -= 1
