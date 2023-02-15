@@ -1,3 +1,3 @@
-import sys
-input = sys.stdin.readline().rstrip()
-print(input())
+lst = []
+lst.append([0,1])
+print(lst)
