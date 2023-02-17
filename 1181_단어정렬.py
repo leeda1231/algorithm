@@ -1,3 +1,16 @@
+#2
+n = int(input())
+s = set()
+for _ in range(n):
+    w = input()
+    s.add((len(w),w))
+lst = list(s)
+lst.sort()
+for x,y in lst:
+    print(y)
+
+
+#1
 n = int(input())
 lst = []
 for _ in range(n):
