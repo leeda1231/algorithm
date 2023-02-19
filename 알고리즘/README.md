@@ -51,7 +51,7 @@ def selection_sort(arr):
 
 ## 삽입 정렬
 
-자료 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬된 배열 부분과 비교하여, 자신의 위치를 찾아 삽입함으로써 정렬을 완성하는 알고리즘 **O(n<sup>2</sup>) or O(n)**
+자료 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬된 배열 부분과 비교하여, 자신의 위치를 찾아 삽입함으로써 정렬을 완성하는 알고리즘 **O(n) or O(n<sup>2</sup>)**
 
 ```python
 def insertion_sort(arr):
@@ -68,7 +68,7 @@ def insertion_sort(arr):
 
 ## 퀵 정렬
 
-무작위로 선정된 한 원소(pivot 역할)을 사용하여 배열을 분할. 선정된 원소보다 작은 원소들은 앞에, 큰 원소들은 뒤에 보낸다.  **O(nlogn) or O(n<sup>2</sup>)**
+무작위로 선정된 한 원소(pivot 역할)을 사용하여 배열을 분할. 선정된 원소보다 작은 원소들은 앞에, 큰 원소들은 뒤에 보낸다.  **O(n logn) or O(n<sup>2</sup>)**
 
 ```python
 def quick_sort(arr):
@@ -90,9 +90,48 @@ def quick_sort(arr):
 
 ## 병합 정렬
 
+하나의 리스트를 두 개의 균등한 크기로 분할하고 분할된 부분 리스트를 정렬한 다음, 두 개의 정렬된 부분 리스트를 합하여 전체가 정렬된 리스트를 얻는 방법 **O(n log n)** 
+
+```python
+def merge_sort(arr):
+    # 크기가 1이하면 반환
+    if len(arr) <= 1:
+        return arr
+    # 리스트 2분할
+    mid = len(arr)//2
+    left = arr[mid:]
+    right = arr[:mid]
+    #2분할한 리스트 각각 merge 진행
+    left_ = merge_sort(left)
+    right_ = merge_sort(right)
+    return merge(left_,right_)
+
+def merge(left,right):
+    i,j = 0,0
+    sorted_arr = []
+    
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            sorted_arr.append(left[i])
+            i += 1
+        else:
+            sorted_arr.append(right[j])
+            j += 1
+    
+    sorted_arr += left[i:]
+    sorted_arr += right[j:]
+    return sorted_arr
+```
+
+💡분할 정복 알고리즘의 하나
+
 
 
 ## 힙 정렬
+
+최대 힙 트리나 최소 힙 트리를 구성해 정렬을 하는 방법
+
+
 
 
 
@@ -116,7 +155,7 @@ def counting_sort(arr):
 
 💡 메모리 소모 有 : 정렬할 원소의 최소값~최대값까지의 공간이 필요
 
-
+💡 데이터 수가 많더라도 중복된 값이 많이 분포돼있는 배열을 정렬할 때 효과적이고 빠른 정렬 알고리즘
 
 
 
@@ -125,3 +164,6 @@ def counting_sort(arr):
 https://modulabs.co.kr/blog/algorithm-python/
 
 https://velog.io/@jinh2352/%EC%A0%95%EB%A0%AC-%EA%B8%B0%EB%B3%B8
+
+https://codingsmu.tistory.com/133
+
