@@ -1,3 +1,18 @@
+# 2
+n = int(input())
+cards = [0]* 20000001
+lst = list(map(int,input().split()))
+for l in lst:
+    cards[l+10000000] = 1
+m = int(input())
+nums = list(map(int,input().split()))
+for num in nums:
+    if cards[num+10000000] == 1:
+        print(1,end=' ')
+    else:
+        print(0,end=' ')
+
+# 1
 n = int(input())
 cards = list(map(int,input().split()))
 cards.sort()
