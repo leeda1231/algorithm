@@ -1,3 +1,28 @@
+#2
+n = int(input())
+row = []
+col = []
+lst = []
+for _ in range(6):
+    d,v = map(int,input().split())
+    lst.append(v)
+    if d == 1 or d == 2:
+        row.append(v)
+    else:
+        col.append(v)
+w = max(col)
+h = max(row)
+wh = []
+for i in range(6):
+    if lst[i] == w or lst[i] == h:
+        continue
+    if lst[(i-1)%6] != w and lst[(i-1)%6] != h and lst[(i+1)%6] != w and lst[(i+1)%6] != h:
+        wh.append(lst[i])
+print(n*(w*h-wh[0]*wh[1]))
+
+
+
+#1
 n = int(input())
 lst = [list(map(int,input().split())) for _ in range(6)]
 # print(lst)
