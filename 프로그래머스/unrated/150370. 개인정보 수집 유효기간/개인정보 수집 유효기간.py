@@ -24,10 +24,6 @@ def solution(today, terms, privacies):
         nm %= 12
         if nm == 0:
             nm = 12
-        if ny < ty:
-            answer.append(i+1)
-        elif ny == ty and nm < tm:
-            answer.append(i+1)
-        elif ny == ty and nm == tm and nd < td:
+        if (ny < ty) or (ny == ty and nm < tm) or (ny == ty and nm == tm and nd < td):
             answer.append(i+1)
     return answer
